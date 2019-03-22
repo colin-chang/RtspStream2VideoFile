@@ -5,24 +5,34 @@ using Xunit;
 
 namespace ColinChang.OpenSource.RtspStream2VideoFile.Test
 {
-    public class RtspHelperTest : IDisposable
+    public class RtspHelperTest
     {
         const string url = "rtsp://admin:12345qwert@192.168.0.109:554/h264/ch1/main/av_stream";
-        string path = @"C:\Temp\test.mp4";
+        readonly string fileName = $@"C:\Temp\{DateTime.Now:yyyyMMddhhmmss}.mp4";
 
         [Fact]
-        public void SaveAsTest()
+        public void RecordTest()
         {
-            var rtsp = new RtspHelper(url);
+            var rtsp = new RtspHelper(url, _ => true);
+            ThreadPool.QueueUserWorkItem(state => rtsp.Start(fileName));
 
-            new Thread(() => rtsp.SaveAs(path)) {IsBackground = true}.Start();
             Thread.Sleep(5000);
-            Assert.True(File.Exists(path));
+            rtsp.Stop();
+            Assert.True(File.Exists(fileName));
         }
 
-        public void Dispose()
+        [Fact]
+        public void ExternalControlTest()
         {
-            File.Delete(path);
+            var key = "cameraTest";
+            MemoryCache.Default[key] = url;
+
+            var rtsp = new RtspHelper(url, addr => MemoryCache.Default.Contains(key));
+            ThreadPool.QueueUserWorkItem(state => rtsp.Start(fileName));
+
+            Thread.Sleep(5000);
+            MemoryCache.Default.Remove(key);
+            Assert.True(File.Exists(fileName));
         }
     }
 }
