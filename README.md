@@ -7,5 +7,5 @@ RtspStream2VideoFile库可以实现从既定RTSP地址到网路流保存为本�
 * 基于FFmpeg工具
 * 基于[FFmpeg.AutoGen](https://github.com/Ruslan-B/FFmpeg.AutoGen)
 
-## Bug
-mac OS下使用ffmepg仍然存在问题
+## TODO
+mac OS和Linux环境
