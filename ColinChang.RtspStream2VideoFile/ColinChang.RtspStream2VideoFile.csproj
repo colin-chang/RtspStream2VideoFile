@@ -2,6 +2,14 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <Authors>Colin Chang</Authors>
+    <Copyright>https://github.com/colin-chang/RtspStream2VideoFile</Copyright>
+    <PackageLicenseUrl>https://raw.githubusercontent.com/colin-chang/RtspStream2VideoFile/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/colin-chang/RtspStream2VideoFile</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/colin-chang/RtspStream2VideoFile</RepositoryUrl>
+    <RepositoryType>Git</RepositoryType>
+    <PackageTags>ffmpeg,video,rtsp,stream</PackageTags>
+    <Description>A tool can save specify rtsp url to video file with ffmpeg.only windows is supported for version 1.0.0.0.</Description>
   </PropertyGroup>
 
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
