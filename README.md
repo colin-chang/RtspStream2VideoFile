@@ -12,5 +12,13 @@ RtspStream2VideoFile库可以实现从既定RTSP地址到网路流保存为本�
 
 ![兼容性](compatibility.jpg)
 
+## [Nuget](https://www.nuget.org/packages/ColinChang.RtspStream2VideoFile/)
+```sh
+# Package Manager
+Install-Package ColinChang.RtspStream2VideoFile
+
+# .NET CLI
+dotnet add package ColinChang.RtspStream2VideoFile
+```
 ## TODO
 mac OS和Linux环境兼容性调整
