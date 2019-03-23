@@ -1,5 +1,6 @@
 using System;
 using System.IO;
+using System.Runtime.Caching;
 using System.Threading;
 using Xunit;
 
@@ -24,10 +25,18 @@ namespace ColinChang.OpenSource.RtspStream2VideoFile.Test
         [Fact]
         public void ExternalControlTest()
         {
-            var key = "cameraTest";
+            const string key = "cameraTest";
             MemoryCache.Default[key] = url;
 
-            var rtsp = new RtspHelper(url, addr => MemoryCache.Default.Contains(key));
+            var rtsp = new RtspHelper(url,
+                addr => MemoryCache.Default.Contains(key),
+                (s, e) =>
+                {
+                    //异常处理
+                    (s as RtspHelper).Stop();
+                    MemoryCache.Default.Remove(key);
+                }
+            );
             ThreadPool.QueueUserWorkItem(state => rtsp.Start(fileName));
 
             Thread.Sleep(5000);
