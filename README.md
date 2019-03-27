@@ -1,6 +1,6 @@
 # RtspStream2VideoFile
 
-RtspStream2VideoFile库可以实现从既定RTSP地址到网路流保存为本地视频文件。具体用法参见单元测试。
+This can help you to save a video file from a specify rtsp address,it works based on ffmpeg.Only windows is supported for current version.
 
 ## [Nuget](https://www.nuget.org/packages/ColinChang.RtspStream2VideoFile/)
 ```sh
@@ -10,10 +10,17 @@ Install-Package ColinChang.RtspStream2VideoFile
 # .NET CLI
 dotnet add package ColinChang.RtspStream2VideoFile
 ```
-## 兼容性
-不支持Asp.Net Core。与Web项目使用的Microsoft.NET.Sdk.Web中某个库存在兼容性问题，目前支持Microsoft.NET.Sdk。除了Web项目都可以正常使用。
 
-![兼容性](compatibility.jpg)
+## Important Note
+* You must copy the `FFmpeg` folder to your project output path or set all of the files Copy to Output Directory be "Always Copy" which under `FFmpeg` folder.
+* Only Windows is supported currently both of x86 and x64.
+
+About the details of how to use this,please check the [unit test project](https://github.com/colin-chang/RtspStream2VideoFile/tree/master/ColinChang.RtspStream2VideoFile.Test).
+
+## Compatibility
+It can not work with `Microsoft.NET.Sdk.Web` but `Microsoft.NET.Sdk`.It means this can be used in an Asp.Net Core Application,fortunately any other applicaitons can work well with this.
+
+![compatibility](compatibility.jpg)
 
 ## TODO
-mac OS和Linux环境兼容性调整
+Compatible with Mac OS and Linux.
