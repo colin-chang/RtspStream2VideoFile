@@ -9,20 +9,16 @@ namespace ColinChang.RtspStream2VideoFile
         private Predicate<string> _canExecute;
         private readonly string _rtsp;
 
-        /// <summary>
-        /// 异常处理事件
-        /// </summary>
         public event EventHandler<RtspExceptionEventArgs> OnException;
-
 
         public RtspHelper(string rtsp, Predicate<string> canExecute) : this(rtsp, canExecute, null) { }
 
         /// <summary>
-        /// 构造RTSP处理对象
+        /// Constructor RTSP Processor Instance
         /// </summary>
-        /// <param name="rtsp">rtsp地址</param>
-        /// <param name="canExecute">是否可以运行</param>
-        /// <param name="exceptionHandler">异常处理方法</param>
+        /// <param name="rtsp">rtsp address</param>
+        /// <param name="canExecute">whether can continue to record video</param>
+        /// <param name="exceptionHandler">evenhandler when exception occured</param>
         public RtspHelper(string rtsp, Predicate<string> canExecute, EventHandler<RtspExceptionEventArgs> exceptionHandler)
         {
             _rtsp = rtsp;
@@ -32,9 +28,6 @@ namespace ColinChang.RtspStream2VideoFile
             Initialize();
         }
 
-        /// <summary>
-        /// 初始化ffmpeg
-        /// </summary>
         private void Initialize()
         {
             try
@@ -75,11 +68,6 @@ namespace ColinChang.RtspStream2VideoFile
                 throw;
             }
         }
-
-        /// <summary>
-        /// 开始录制视频
-        /// </summary>
-        /// <param name="fileName">视频保存文件名(全路径)</param>
 
         public unsafe void Start(string fileName)
         {
@@ -188,9 +176,6 @@ namespace ColinChang.RtspStream2VideoFile
             }
         }
 
-        /// <summary>
-        /// 停止视频录制
-        /// </summary>
         public void Stop()
         {
             _canExecute = _ => false;

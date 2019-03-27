@@ -32,7 +32,6 @@ namespace ColinChang.RtspStream2VideoFile.Test
                 addr => MemoryCache.Default.Contains(key),
                 (s, e) =>
                 {
-                    //异常处理
                     (s as RtspHelper).Stop();
                     MemoryCache.Default.Remove(key);
                 }

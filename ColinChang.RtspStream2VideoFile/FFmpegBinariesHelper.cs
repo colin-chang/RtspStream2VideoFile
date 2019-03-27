@@ -15,13 +15,14 @@ namespace ColinChang.RtspStream2VideoFile
                 case PlatformID.Win32NT:
                 case PlatformID.Win32S:
                 case PlatformID.Win32Windows:
-                    RegisterLibrariesSearchPath(Path.Combine(Environment.CurrentDirectory, "FFmpeg", "win", "bin",
+                    RegisterLibrariesSearchPath(Path.Combine(Environment.CurrentDirectory, "FFmpeg", "bin",
                         Environment.Is64BitProcess ? "x64" : "x86"));
                     break;
                 case PlatformID.Unix:
                 case PlatformID.MacOSX:
-                    RegisterLibrariesSearchPath(Path.Combine(Environment.CurrentDirectory, "FFmpeg", "mac", "bin"));
-                    break;
+                    //RegisterLibrariesSearchPath(Path.Combine(Environment.CurrentDirectory, "FFmpeg", "mac", "bin"));
+                    //break;
+                    throw new NotSupportedException($"sorry,the current platform {Environment.OSVersion.Platform} is not yet supported.");
             }
         }
 
