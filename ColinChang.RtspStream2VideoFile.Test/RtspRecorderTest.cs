@@ -18,9 +18,9 @@ namespace ColinChang.RtspStream2VideoFile.Test
         public void InternalContolTest()
         {
             var recorder = new RtspRecorder(rtsp);
-            var fileName = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, nameof(InternalContolTest), $"{DateTime.Now:yyyyMMddhhmmss}.mp4");
-            recorder.Start(fileName);
+            var fileName = GetFileName(nameof(InternalContolTest));
 
+            ThreadPool.QueueUserWorkItem(_ => recorder.Start(fileName));
             Thread.Sleep(5000);
             recorder.Stop();
             Assert.True(File.Exists(fileName));
@@ -33,7 +33,7 @@ namespace ColinChang.RtspStream2VideoFile.Test
         public void ExternalControlTest()
         {
             const string key = "cameraTest";
-            var fileName = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, nameof(ExternalControlTest), $"{DateTime.Now:yyyyMMddhhmmss}.mp4");
+            var fileName = GetFileName(nameof(ExternalControlTest));
 
             var recorder = new RtspRecorder(rtsp,
                 addr => MemoryCache.Default[key]?.ToString() == addr,
@@ -41,15 +41,26 @@ namespace ColinChang.RtspStream2VideoFile.Test
                 {
                     //OnException
                     (s as RtspRecorder).Stop();
-                    MemoryCache.Default[key] = null;
+                    MemoryCache.Default[key] = string.Empty;
                 }
             );
             MemoryCache.Default[key] = rtsp;
             ThreadPool.QueueUserWorkItem(state => recorder.Start(fileName));
 
             Thread.Sleep(5000);
-            MemoryCache.Default[key] = null;
+            MemoryCache.Default[key] = string.Empty;
             Assert.True(File.Exists(fileName));
+        }
+
+        private string GetFileName(string testMethodName)
+        {
+            var fileName = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, testMethodName, $"{DateTime.Now:yyyyMMddhhmmss}.mp4");
+
+            var dir = Path.GetDirectoryName(fileName);
+            if (!Directory.Exists(dir))
+                Directory.CreateDirectory(dir);
+
+            return fileName;
         }
     }
 }
