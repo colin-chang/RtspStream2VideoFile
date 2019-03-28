@@ -2,6 +2,7 @@ using System;
 using System.IO;
 using System.Runtime.Caching;
 using System.Threading;
+using System.Threading.Tasks;
 using Xunit;
 
 namespace ColinChang.RtspStream2VideoFile.Test
@@ -9,7 +10,6 @@ namespace ColinChang.RtspStream2VideoFile.Test
     public class RtspRecorderTest
     {
         const string rtsp = "rtsp://admin:12345qwert@192.168.0.109:554/h264/ch1/main/av_stream";
-        readonly string fileName = $@"C:\Temp\{DateTime.Now:yyyyMMddhhmmss}.mp4";
 
         /// <summary>
         /// record a 5 seconds video and stop recorder by itself instance
@@ -18,7 +18,8 @@ namespace ColinChang.RtspStream2VideoFile.Test
         public void InternalContolTest()
         {
             var recorder = new RtspRecorder(rtsp);
-            ThreadPool.QueueUserWorkItem(_ => recorder.Start(fileName));
+            var fileName = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, nameof(InternalContolTest), $"{DateTime.Now:yyyyMMddhhmmss}.mp4");
+            recorder.Start(fileName);
 
             Thread.Sleep(5000);
             recorder.Stop();
@@ -32,6 +33,7 @@ namespace ColinChang.RtspStream2VideoFile.Test
         public void ExternalControlTest()
         {
             const string key = "cameraTest";
+            var fileName = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, nameof(ExternalControlTest), $"{DateTime.Now:yyyyMMddhhmmss}.mp4");
 
             var recorder = new RtspRecorder(rtsp,
                 addr => MemoryCache.Default[key]?.ToString() == addr,

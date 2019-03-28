@@ -11,6 +11,7 @@
     <PackageTags>ffmpeg,video,rtsp,stream</PackageTags>
     <Description>A tool can save specify rtsp url to video file with ffmpeg.only windows is supported for version 1.0.0.0.</Description>
     <Version>1.2.0</Version>
+    <PackageIconUrl>https://raw.githubusercontent.com/colin-chang/RtspStream2VideoFile/master/ffmpeg.ico</PackageIconUrl>
   </PropertyGroup>
 
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
@@ -22,7 +23,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Update="FFmpeg.AutoGen" Version="4.1.0.2" />
+    <PackageReference Include="FFmpeg.AutoGen" Version="4.1.0.2" />
   </ItemGroup>
 
   <ItemGroup>
