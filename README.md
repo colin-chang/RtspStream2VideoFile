@@ -14,6 +14,7 @@ dotnet add package ColinChang.RtspStream2VideoFile
 ## Important Note
 * You must download the `FFmpeg` resource separately from https://github.com/colin-chang/RtspStream2VideoFile/tree/master/ColinChang.RtspStream2VideoFile. I can not pack it in the nuget package since it's too large.
 * You must copy the `FFmpeg` folder to your project output path or set all of the files Copy to Output Directory be "Always Copy" which under `FFmpeg` folder.
+* The target file extension should be mp4
 * Only Windows is supported currently both of x86 and x64.
 
 About the details of how to use this,please check the [unit test project](https://github.com/colin-chang/RtspStream2VideoFile/tree/master/ColinChang.RtspStream2VideoFile.Test).
