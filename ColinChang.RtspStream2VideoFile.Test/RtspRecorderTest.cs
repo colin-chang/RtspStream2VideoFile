@@ -17,10 +17,11 @@ namespace ColinChang.RtspStream2VideoFile.Test
         [Fact]
         public void InternalContolTest()
         {
-            var recorder = new RtspRecorder(rtsp);
             var fileName = GetFileName(nameof(InternalContolTest));
+            var recorder = new RtspRecorder(rtsp, fileName);
 
-            ThreadPool.QueueUserWorkItem(_ => recorder.Start(fileName));
+
+            ThreadPool.QueueUserWorkItem(_ => recorder.Start());
             Thread.Sleep(5000);
             recorder.Stop();
             Assert.True(File.Exists(fileName));
@@ -35,7 +36,7 @@ namespace ColinChang.RtspStream2VideoFile.Test
             const string key = "cameraTest";
             var fileName = GetFileName(nameof(ExternalControlTest));
 
-            var recorder = new RtspRecorder(rtsp,
+            var recorder = new RtspRecorder(rtsp, fileName,
                 addr => MemoryCache.Default[key]?.ToString() == addr,
                 (s, e) =>
                 {
@@ -45,22 +46,14 @@ namespace ColinChang.RtspStream2VideoFile.Test
                 }
             );
             MemoryCache.Default[key] = rtsp;
-            ThreadPool.QueueUserWorkItem(state => recorder.Start(fileName));
+            ThreadPool.QueueUserWorkItem(state => recorder.Start());
 
             Thread.Sleep(5000);
             MemoryCache.Default[key] = string.Empty;
             Assert.True(File.Exists(fileName));
         }
 
-        private string GetFileName(string testMethodName)
-        {
-            var fileName = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, testMethodName, $"{DateTime.Now:yyyyMMddhhmmss}.mp4");
-
-            var dir = Path.GetDirectoryName(fileName);
-            if (!Directory.Exists(dir))
-                Directory.CreateDirectory(dir);
-
-            return fileName;
-        }
+        private string GetFileName(string testMethodName) =>
+            Path.Combine(AppDomain.CurrentDomain.BaseDirectory, testMethodName, $"{DateTime.Now:yyyyMMddhhmmss}.mp4");
     }
 }

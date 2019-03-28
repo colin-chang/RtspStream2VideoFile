@@ -7,14 +7,20 @@ namespace ColinChang.RtspStream2VideoFile
 {
     public unsafe class RtspRecorder
     {
+        //can containue to record video or not
         private Predicate<string> _canExecute;
+
         public string Rtsp { get; set; }
+
+        public string DestinationFile { get; set; }
 
         public event EventHandler<RtspExceptionEventArgs> OnException;
 
-        public RtspRecorder(string rtsp) : this(rtsp, _ => true, null) { }
+        public RtspRecorder(string rtsp, string destinationFile) : this(rtsp, destinationFile, _ => true, null) { }
 
-        public RtspRecorder(string rtsp, Predicate<string> canExecute) : this(rtsp, canExecute, null) { }
+        public RtspRecorder(string rtsp, string destinationFile, Predicate<string> canExecute) : this(rtsp, destinationFile, canExecute, null) { }
+
+        public RtspRecorder(string rtsp, string destinationFile, EventHandler<RtspExceptionEventArgs> exceptionHandler) : this(rtsp, destinationFile, _ => true, exceptionHandler) { }
 
         /// <summary>
         /// Constructor RTSP Processor Instance
@@ -22,9 +28,10 @@ namespace ColinChang.RtspStream2VideoFile
         /// <param name="rtsp">rtsp address</param>
         /// <param name="canExecute">whether can continue to record video</param>
         /// <param name="exceptionHandler">evenhandler when exception occured</param>
-        public RtspRecorder(string rtsp, Predicate<string> canExecute, EventHandler<RtspExceptionEventArgs> exceptionHandler)
+        public RtspRecorder(string rtsp, string destinationFile, Predicate<string> canExecute, EventHandler<RtspExceptionEventArgs> exceptionHandler)
         {
             Rtsp = rtsp;
+            DestinationFile = EnsureMp4File(destinationFile);
             _canExecute = canExecute;
             OnException = exceptionHandler;
 
@@ -72,12 +79,10 @@ namespace ColinChang.RtspStream2VideoFile
             }
         }
 
-        public unsafe void Start(string fileName)
+        public unsafe void Start()
         {
             try
             {
-                fileName = EnsureMp4File(fileName);
-
                 AVStream* i_video_stream = null;
                 AVFormatContext* o_fmt_ctx;
 
@@ -101,7 +106,7 @@ namespace ColinChang.RtspStream2VideoFile
                     break;
                 }
 
-                ffmpeg.avformat_alloc_output_context2(&o_fmt_ctx, null, null, fileName);
+                ffmpeg.avformat_alloc_output_context2(&o_fmt_ctx, null, null, DestinationFile);
 
                 /*
                 * since all input files are supposed to be identical (framerate, dimension, color format, ...)
@@ -130,7 +135,7 @@ namespace ColinChang.RtspStream2VideoFile
                     c->qcompress = i_video_stream->codec->qcompress;
                 }
 
-                ffmpeg.avio_open(&o_fmt_ctx->pb, fileName, ffmpeg.AVIO_FLAG_WRITE);
+                ffmpeg.avio_open(&o_fmt_ctx->pb, DestinationFile, ffmpeg.AVIO_FLAG_WRITE);
                 ffmpeg.avformat_write_header(o_fmt_ctx, null);
 
                 long last_pts = 0;
@@ -187,10 +192,19 @@ namespace ColinChang.RtspStream2VideoFile
             var dir = Path.GetDirectoryName(fileName);
             fileName = Path.Combine(dir, file);
 
-            if (File.Exists(fileName))
-                File.Delete(fileName);
-            else if (!Directory.Exists(dir))
-                Directory.CreateDirectory(dir);
+            try
+            {
+                if (File.Exists(fileName))
+                    File.Delete(fileName);
+                else if (!Directory.Exists(dir))
+                    Directory.CreateDirectory(dir);
+            }
+            catch (Exception ex)
+            {
+                OnException?.Invoke(this, new RtspExceptionEventArgs(Rtsp, ex));
+                throw;
+            }
+
 
             return fileName;
         }
