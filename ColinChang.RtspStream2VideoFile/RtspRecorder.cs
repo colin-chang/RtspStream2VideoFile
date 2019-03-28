@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using System.Runtime.InteropServices;
 using FFmpeg.AutoGen;
 
@@ -75,6 +76,8 @@ namespace ColinChang.RtspStream2VideoFile
         {
             try
             {
+                fileName = EnsureMp4File(fileName);
+
                 AVStream* i_video_stream = null;
                 AVFormatContext* o_fmt_ctx;
 
@@ -176,6 +179,20 @@ namespace ColinChang.RtspStream2VideoFile
                 OnException?.Invoke(this, new RtspExceptionEventArgs(Rtsp, ex));
                 throw;
             }
+        }
+
+        private string EnsureMp4File(string fileName)
+        {
+            var file = $"{ Path.GetFileNameWithoutExtension(fileName)}.mp4";
+            var dir = Path.GetDirectoryName(fileName);
+            fileName = Path.Combine(dir, file);
+
+            if (File.Exists(fileName))
+                File.Delete(fileName);
+            else if (!Directory.Exists(dir))
+                Directory.CreateDirectory(dir);
+
+            return fileName;
         }
 
         public void Stop()

@@ -10,8 +10,9 @@
     <RepositoryType>Git</RepositoryType>
     <PackageTags>ffmpeg,video,rtsp,stream</PackageTags>
     <Description>A tool can save specify rtsp url to video file with ffmpeg.only windows is supported for version 1.0.0.0.</Description>
-    <Version>1.2.0</Version>
+    <Version>1.2.1</Version>
     <PackageIconUrl>https://raw.githubusercontent.com/colin-chang/RtspStream2VideoFile/master/ffmpeg.ico</PackageIconUrl>
+    <PackageReleaseNotes>Ensure file extension is mp4</PackageReleaseNotes>
   </PropertyGroup>
 
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
