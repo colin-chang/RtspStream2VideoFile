@@ -10,7 +10,7 @@
     <RepositoryType>Git</RepositoryType>
     <PackageTags>ffmpeg,video,rtsp,stream</PackageTags>
     <Description>A tool can save specify rtsp url to video file with ffmpeg.only windows is supported for version 1.0.0.0.</Description>
-    <Version>1.1.2</Version>
+    <Version>1.2.0</Version>
   </PropertyGroup>
 
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
@@ -22,405 +22,405 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="FFmpeg.AutoGen" Version="4.1.0.2" />
+    <PackageReference Update="FFmpeg.AutoGen" Version="4.1.0.2" />
   </ItemGroup>
-  
+
   <ItemGroup>
-    <Content Include="FFmpeg\bin\x86\avcodec-58.dll">
+    <None Update="FFmpeg\bin\x86\avcodec-58.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FFmpeg\bin\x64\avcodec-58.dll">
+    </None>
+    <None Update="FFmpeg\bin\x64\avformat-58.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FFmpeg\bin\x64\avdevice-58.dll">
+    </None>
+    <None Update="FFmpeg\bin\x64\avutil-56.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FFmpeg\bin\x64\avfilter-7.dll">
+    </None>
+    <None Update="FFmpeg\bin\x64\postproc-55.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FFmpeg\bin\x64\avformat-58.dll">
+    </None>
+    <None Update="FFmpeg\bin\x64\swresample-3.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FFmpeg\bin\x64\avutil-56.dll">
+    </None>
+    <None Update="FFmpeg\bin\x64\swscale-5.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FFmpeg\bin\x64\postproc-55.dll">
+    </None>
+    <None Update="FFmpeg\bin\x86\avdevice-58.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FFmpeg\bin\x64\swresample-3.dll">
+    </None>
+    <None Update="FFmpeg\bin\x86\avfilter-7.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FFmpeg\bin\x64\swscale-5.dll">
+    </None>
+    <None Update="FFmpeg\bin\x86\avformat-58.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FFmpeg\bin\x86\avdevice-58.dll">
+    </None>
+    <None Update="FFmpeg\bin\x86\avutil-56.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FFmpeg\bin\x86\avfilter-7.dll">
+    </None>
+    <None Update="FFmpeg\bin\x86\ffmpeg.exe">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FFmpeg\bin\x86\avformat-58.dll">
+    </None>
+    <None Update="FFmpeg\bin\x86\ffplay.exe">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FFmpeg\bin\x86\avutil-56.dll">
+    </None>
+    <None Update="FFmpeg\bin\x86\ffprobe.exe">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FFmpeg\bin\x86\ffmpeg.exe">
+    </None>
+    <None Update="FFmpeg\bin\x86\postproc-55.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FFmpeg\bin\x86\ffplay.exe">
+    </None>
+    <None Update="FFmpeg\bin\x86\swresample-3.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FFmpeg\bin\x86\ffprobe.exe">
+    </None>
+    <None Update="FFmpeg\bin\x86\swscale-5.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FFmpeg\bin\x86\postproc-55.dll">
+    </None>
+    <None Update="FFmpeg\include\libavcodec\ac3_parser.h">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FFmpeg\bin\x86\swresample-3.dll">
+    </None>
+    <None Update="FFmpeg\include\libavcodec\adts_parser.h">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FFmpeg\bin\x86\swscale-5.dll">
+    </None>
+    <None Update="FFmpeg\include\libavcodec\avcodec.h">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FFmpeg\include\libavcodec\ac3_parser.h">
+    </None>
+    <None Update="FFmpeg\include\libavcodec\avdct.h">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FFmpeg\include\libavcodec\adts_parser.h">
+    </None>
+    <None Update="FFmpeg\include\libavcodec\avfft.h">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FFmpeg\include\libavcodec\avcodec.h">
+    </None>
+    <None Update="FFmpeg\include\libavcodec\d3d11va.h">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FFmpeg\include\libavcodec\avdct.h">
+    </None>
+    <None Update="FFmpeg\include\libavcodec\dirac.h">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FFmpeg\include\libavcodec\avfft.h">
+    </None>
+    <None Update="FFmpeg\include\libavcodec\dv_profile.h">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FFmpeg\include\libavcodec\d3d11va.h">
+    </None>
+    <None Update="FFmpeg\include\libavcodec\dxva2.h">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FFmpeg\include\libavcodec\dirac.h">
+    </None>
+    <None Update="FFmpeg\include\libavcodec\jni.h">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FFmpeg\include\libavcodec\dv_profile.h">
+    </None>
+    <None Update="FFmpeg\include\libavcodec\mediacodec.h">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FFmpeg\include\libavcodec\dxva2.h">
+    </None>
+    <None Update="FFmpeg\include\libavcodec\qsv.h">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FFmpeg\include\libavcodec\jni.h">
+    </None>
+    <None Update="FFmpeg\include\libavcodec\vaapi.h">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FFmpeg\include\libavcodec\mediacodec.h">
+    </None>
+    <None Update="FFmpeg\include\libavcodec\vdpau.h">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FFmpeg\include\libavcodec\qsv.h">
+    </None>
+    <None Update="FFmpeg\include\libavcodec\version.h">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FFmpeg\include\libavcodec\vaapi.h">
+    </None>
+    <None Update="FFmpeg\include\libavcodec\videotoolbox.h">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FFmpeg\include\libavcodec\vdpau.h">
+    </None>
+    <None Update="FFmpeg\include\libavcodec\vorbis_parser.h">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FFmpeg\include\libavcodec\version.h">
+    </None>
+    <None Update="FFmpeg\include\libavcodec\xvmc.h">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FFmpeg\include\libavcodec\videotoolbox.h">
+    </None>
+    <None Update="FFmpeg\include\libavdevice\avdevice.h">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FFmpeg\include\libavcodec\vorbis_parser.h">
+    </None>
+    <None Update="FFmpeg\include\libavdevice\version.h">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FFmpeg\include\libavcodec\xvmc.h">
+    </None>
+    <None Update="FFmpeg\include\libavfilter\avfilter.h">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FFmpeg\include\libavdevice\avdevice.h">
+    </None>
+    <None Update="FFmpeg\include\libavfilter\buffersink.h">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FFmpeg\include\libavdevice\version.h">
+    </None>
+    <None Update="FFmpeg\include\libavfilter\buffersrc.h">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FFmpeg\include\libavfilter\avfilter.h">
+    </None>
+    <None Update="FFmpeg\include\libavfilter\version.h">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FFmpeg\include\libavfilter\buffersink.h">
+    </None>
+    <None Update="FFmpeg\include\libavformat\avformat.h">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FFmpeg\include\libavfilter\buffersrc.h">
+    </None>
+    <None Update="FFmpeg\include\libavformat\avio.h">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FFmpeg\include\libavfilter\version.h">
+    </None>
+    <None Update="FFmpeg\include\libavformat\version.h">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FFmpeg\include\libavformat\avformat.h">
+    </None>
+    <None Update="FFmpeg\include\libavutil\adler32.h">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FFmpeg\include\libavformat\avio.h">
+    </None>
+    <None Update="FFmpeg\include\libavutil\aes.h">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FFmpeg\include\libavformat\version.h">
+    </None>
+    <None Update="FFmpeg\include\libavutil\aes_ctr.h">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FFmpeg\include\libavutil\adler32.h">
+    </None>
+    <None Update="FFmpeg\include\libavutil\attributes.h">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FFmpeg\include\libavutil\aes.h">
+    </None>
+    <None Update="FFmpeg\include\libavutil\audio_fifo.h">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FFmpeg\include\libavutil\aes_ctr.h">
+    </None>
+    <None Update="FFmpeg\include\libavutil\avassert.h">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FFmpeg\include\libavutil\attributes.h">
+    </None>
+    <None Update="FFmpeg\include\libavutil\avconfig.h">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FFmpeg\include\libavutil\audio_fifo.h">
+    </None>
+    <None Update="FFmpeg\include\libavutil\avstring.h">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FFmpeg\include\libavutil\avassert.h">
+    </None>
+    <None Update="FFmpeg\include\libavutil\avutil.h">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FFmpeg\include\libavutil\avconfig.h">
+    </None>
+    <None Update="FFmpeg\include\libavutil\base64.h">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FFmpeg\include\libavutil\avstring.h">
+    </None>
+    <None Update="FFmpeg\include\libavutil\blowfish.h">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FFmpeg\include\libavutil\avutil.h">
+    </None>
+    <None Update="FFmpeg\include\libavutil\bprint.h">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FFmpeg\include\libavutil\base64.h">
+    </None>
+    <None Update="FFmpeg\include\libavutil\bswap.h">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FFmpeg\include\libavutil\blowfish.h">
+    </None>
+    <None Update="FFmpeg\include\libavutil\buffer.h">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FFmpeg\include\libavutil\bprint.h">
+    </None>
+    <None Update="FFmpeg\include\libavutil\camellia.h">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FFmpeg\include\libavutil\bswap.h">
+    </None>
+    <None Update="FFmpeg\include\libavutil\cast5.h">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FFmpeg\include\libavutil\buffer.h">
+    </None>
+    <None Update="FFmpeg\include\libavutil\channel_layout.h">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FFmpeg\include\libavutil\camellia.h">
+    </None>
+    <None Update="FFmpeg\include\libavutil\common.h">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FFmpeg\include\libavutil\cast5.h">
+    </None>
+    <None Update="FFmpeg\include\libavutil\cpu.h">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FFmpeg\include\libavutil\channel_layout.h">
+    </None>
+    <None Update="FFmpeg\include\libavutil\crc.h">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FFmpeg\include\libavutil\common.h">
+    </None>
+    <None Update="FFmpeg\include\libavutil\des.h">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FFmpeg\include\libavutil\cpu.h">
+    </None>
+    <None Update="FFmpeg\include\libavutil\dict.h">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FFmpeg\include\libavutil\crc.h">
+    </None>
+    <None Update="FFmpeg\include\libavutil\display.h">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FFmpeg\include\libavutil\des.h">
+    </None>
+    <None Update="FFmpeg\include\libavutil\downmix_info.h">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FFmpeg\include\libavutil\dict.h">
+    </None>
+    <None Update="FFmpeg\include\libavutil\encryption_info.h">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FFmpeg\include\libavutil\display.h">
+    </None>
+    <None Update="FFmpeg\include\libavutil\error.h">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FFmpeg\include\libavutil\downmix_info.h">
+    </None>
+    <None Update="FFmpeg\include\libavutil\eval.h">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FFmpeg\include\libavutil\encryption_info.h">
+    </None>
+    <None Update="FFmpeg\include\libavutil\ffversion.h">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FFmpeg\include\libavutil\error.h">
+    </None>
+    <None Update="FFmpeg\include\libavutil\fifo.h">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FFmpeg\include\libavutil\eval.h">
+    </None>
+    <None Update="FFmpeg\include\libavutil\file.h">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FFmpeg\include\libavutil\ffversion.h">
+    </None>
+    <None Update="FFmpeg\include\libavutil\frame.h">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FFmpeg\include\libavutil\fifo.h">
+    </None>
+    <None Update="FFmpeg\include\libavutil\hash.h">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FFmpeg\include\libavutil\file.h">
+    </None>
+    <None Update="FFmpeg\include\libavutil\hmac.h">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FFmpeg\include\libavutil\frame.h">
+    </None>
+    <None Update="FFmpeg\include\libavutil\hwcontext.h">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FFmpeg\include\libavutil\hash.h">
+    </None>
+    <None Update="FFmpeg\include\libavutil\hwcontext_cuda.h">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FFmpeg\include\libavutil\hmac.h">
+    </None>
+    <None Update="FFmpeg\include\libavutil\hwcontext_d3d11va.h">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FFmpeg\include\libavutil\hwcontext.h">
+    </None>
+    <None Update="FFmpeg\include\libavutil\hwcontext_drm.h">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FFmpeg\include\libavutil\hwcontext_cuda.h">
+    </None>
+    <None Update="FFmpeg\include\libavutil\hwcontext_dxva2.h">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FFmpeg\include\libavutil\hwcontext_d3d11va.h">
+    </None>
+    <None Update="FFmpeg\include\libavutil\hwcontext_mediacodec.h">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FFmpeg\include\libavutil\hwcontext_drm.h">
+    </None>
+    <None Update="FFmpeg\include\libavutil\hwcontext_qsv.h">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FFmpeg\include\libavutil\hwcontext_dxva2.h">
+    </None>
+    <None Update="FFmpeg\include\libavutil\hwcontext_vaapi.h">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FFmpeg\include\libavutil\hwcontext_mediacodec.h">
+    </None>
+    <None Update="FFmpeg\include\libavutil\hwcontext_vdpau.h">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FFmpeg\include\libavutil\hwcontext_qsv.h">
+    </None>
+    <None Update="FFmpeg\include\libavutil\hwcontext_videotoolbox.h">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FFmpeg\include\libavutil\hwcontext_vaapi.h">
+    </None>
+    <None Update="FFmpeg\include\libavutil\imgutils.h">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FFmpeg\include\libavutil\hwcontext_vdpau.h">
+    </None>
+    <None Update="FFmpeg\include\libavutil\intfloat.h">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FFmpeg\include\libavutil\hwcontext_videotoolbox.h">
+    </None>
+    <None Update="FFmpeg\include\libavutil\intreadwrite.h">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FFmpeg\include\libavutil\imgutils.h">
+    </None>
+    <None Update="FFmpeg\include\libavutil\lfg.h">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FFmpeg\include\libavutil\intfloat.h">
+    </None>
+    <None Update="FFmpeg\include\libavutil\log.h">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FFmpeg\include\libavutil\intreadwrite.h">
+    </None>
+    <None Update="FFmpeg\include\libavutil\lzo.h">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FFmpeg\include\libavutil\lfg.h">
+    </None>
+    <None Update="FFmpeg\include\libavutil\macros.h">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FFmpeg\include\libavutil\log.h">
+    </None>
+    <None Update="FFmpeg\include\libavutil\mastering_display_metadata.h">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FFmpeg\include\libavutil\lzo.h">
+    </None>
+    <None Update="FFmpeg\include\libavutil\mathematics.h">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FFmpeg\include\libavutil\macros.h">
+    </None>
+    <None Update="FFmpeg\include\libavutil\md5.h">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FFmpeg\include\libavutil\mastering_display_metadata.h">
+    </None>
+    <None Update="FFmpeg\include\libavutil\mem.h">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FFmpeg\include\libavutil\mathematics.h">
+    </None>
+    <None Update="FFmpeg\include\libavutil\motion_vector.h">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FFmpeg\include\libavutil\md5.h">
+    </None>
+    <None Update="FFmpeg\include\libavutil\murmur3.h">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FFmpeg\include\libavutil\mem.h">
+    </None>
+    <None Update="FFmpeg\include\libavutil\opt.h">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FFmpeg\include\libavutil\motion_vector.h">
+    </None>
+    <None Update="FFmpeg\include\libavutil\parseutils.h">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FFmpeg\include\libavutil\murmur3.h">
+    </None>
+    <None Update="FFmpeg\include\libavutil\pixdesc.h">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FFmpeg\include\libavutil\opt.h">
+    </None>
+    <None Update="FFmpeg\include\libavutil\pixelutils.h">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FFmpeg\include\libavutil\parseutils.h">
+    </None>
+    <None Update="FFmpeg\include\libavutil\pixfmt.h">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FFmpeg\include\libavutil\pixdesc.h">
+    </None>
+    <None Update="FFmpeg\include\libavutil\random_seed.h">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FFmpeg\include\libavutil\pixelutils.h">
+    </None>
+    <None Update="FFmpeg\include\libavutil\rational.h">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FFmpeg\include\libavutil\pixfmt.h">
+    </None>
+    <None Update="FFmpeg\include\libavutil\rc4.h">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FFmpeg\include\libavutil\random_seed.h">
+    </None>
+    <None Update="FFmpeg\include\libavutil\replaygain.h">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FFmpeg\include\libavutil\rational.h">
+    </None>
+    <None Update="FFmpeg\include\libavutil\ripemd.h">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FFmpeg\include\libavutil\rc4.h">
+    </None>
+    <None Update="FFmpeg\include\libavutil\samplefmt.h">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FFmpeg\include\libavutil\replaygain.h">
+    </None>
+    <None Update="FFmpeg\include\libavutil\sha.h">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FFmpeg\include\libavutil\ripemd.h">
+    </None>
+    <None Update="FFmpeg\include\libavutil\sha512.h">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FFmpeg\include\libavutil\samplefmt.h">
+    </None>
+    <None Update="FFmpeg\include\libavutil\spherical.h">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FFmpeg\include\libavutil\sha.h">
+    </None>
+    <None Update="FFmpeg\include\libavutil\stereo3d.h">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FFmpeg\include\libavutil\sha512.h">
+    </None>
+    <None Update="FFmpeg\include\libavutil\tea.h">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FFmpeg\include\libavutil\spherical.h">
+    </None>
+    <None Update="FFmpeg\include\libavutil\threadmessage.h">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FFmpeg\include\libavutil\stereo3d.h">
+    </None>
+    <None Update="FFmpeg\include\libavutil\time.h">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FFmpeg\include\libavutil\tea.h">
+    </None>
+    <None Update="FFmpeg\include\libavutil\timecode.h">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FFmpeg\include\libavutil\threadmessage.h">
+    </None>
+    <None Update="FFmpeg\include\libavutil\timestamp.h">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FFmpeg\include\libavutil\time.h">
+    </None>
+    <None Update="FFmpeg\include\libavutil\tree.h">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FFmpeg\include\libavutil\timecode.h">
+    </None>
+    <None Update="FFmpeg\include\libavutil\twofish.h">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FFmpeg\include\libavutil\timestamp.h">
+    </None>
+    <None Update="FFmpeg\include\libavutil\version.h">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FFmpeg\include\libavutil\tree.h">
+    </None>
+    <None Update="FFmpeg\include\libavutil\xtea.h">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FFmpeg\include\libavutil\twofish.h">
+    </None>
+    <None Update="FFmpeg\include\libpostproc\postprocess.h">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FFmpeg\include\libavutil\version.h">
+    </None>
+    <None Update="FFmpeg\include\libpostproc\version.h">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FFmpeg\include\libavutil\xtea.h">
+    </None>
+    <None Update="FFmpeg\include\libswresample\swresample.h">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FFmpeg\include\libpostproc\postprocess.h">
+    </None>
+    <None Update="FFmpeg\include\libswresample\version.h">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FFmpeg\include\libpostproc\version.h">
+    </None>
+    <None Update="FFmpeg\include\libswscale\swscale.h">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FFmpeg\include\libswresample\swresample.h">
+    </None>
+    <None Update="FFmpeg\include\libswscale\version.h">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FFmpeg\include\libswresample\version.h">
+    </None>
+    <None Update="FFmpeg\bin\x64\avcodec-58.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FFmpeg\include\libswscale\swscale.h">
+    </None>
+    <None Update="FFmpeg\bin\x64\avdevice-58.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FFmpeg\include\libswscale\version.h">
+    </None>
+    <None Update="FFmpeg\bin\x64\avfilter-7.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    </None>
   </ItemGroup>
 </Project>

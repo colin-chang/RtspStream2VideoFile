@@ -4,14 +4,16 @@ using FFmpeg.AutoGen;
 
 namespace ColinChang.RtspStream2VideoFile
 {
-        public unsafe class RtspHelper
+    public unsafe class RtspRecorder
     {
         private Predicate<string> _canExecute;
-        private readonly string _rtsp;
+        public string Rtsp { get; set; }
 
         public event EventHandler<RtspExceptionEventArgs> OnException;
 
-        public RtspHelper(string rtsp, Predicate<string> canExecute) : this(rtsp, canExecute, null) { }
+        public RtspRecorder(string rtsp) : this(rtsp, _ => true, null) { }
+
+        public RtspRecorder(string rtsp, Predicate<string> canExecute) : this(rtsp, canExecute, null) { }
 
         /// <summary>
         /// Constructor RTSP Processor Instance
@@ -19,9 +21,9 @@ namespace ColinChang.RtspStream2VideoFile
         /// <param name="rtsp">rtsp address</param>
         /// <param name="canExecute">whether can continue to record video</param>
         /// <param name="exceptionHandler">evenhandler when exception occured</param>
-        public RtspHelper(string rtsp, Predicate<string> canExecute, EventHandler<RtspExceptionEventArgs> exceptionHandler)
+        public RtspRecorder(string rtsp, Predicate<string> canExecute, EventHandler<RtspExceptionEventArgs> exceptionHandler)
         {
-            _rtsp = rtsp;
+            Rtsp = rtsp;
             _canExecute = canExecute;
             OnException = exceptionHandler;
 
@@ -64,7 +66,7 @@ namespace ColinChang.RtspStream2VideoFile
             }
             catch (Exception ex)
             {
-                OnException?.Invoke(this, new RtspExceptionEventArgs(_rtsp, ex));
+                OnException?.Invoke(this, new RtspExceptionEventArgs(Rtsp, ex));
                 throw;
             }
         }
@@ -78,7 +80,7 @@ namespace ColinChang.RtspStream2VideoFile
 
                 /* should set to null so that avformat_open_input() allocate a new one */
                 AVFormatContext* i_fmt_ctx = null;
-                if (ffmpeg.avformat_open_input(&i_fmt_ctx, _rtsp, null, null) != 0)
+                if (ffmpeg.avformat_open_input(&i_fmt_ctx, Rtsp, null, null) != 0)
                     return;
 
                 if (ffmpeg.avformat_find_stream_info(i_fmt_ctx, null) < 0)
@@ -132,7 +134,7 @@ namespace ColinChang.RtspStream2VideoFile
                 long last_dts = 0;
                 long pts = 0;
                 long dts = 0;
-                while (_canExecute(_rtsp))
+                while (_canExecute(Rtsp))
                 {
                     AVPacket i_pkt;
                     ffmpeg.av_init_packet(&i_pkt);
@@ -171,7 +173,7 @@ namespace ColinChang.RtspStream2VideoFile
             }
             catch (Exception ex)
             {
-                OnException?.Invoke(this, new RtspExceptionEventArgs(_rtsp, ex));
+                OnException?.Invoke(this, new RtspExceptionEventArgs(Rtsp, ex));
                 throw;
             }
         }
